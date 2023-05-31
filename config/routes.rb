@@ -3,4 +3,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  namespace :webhooks do
+    resource :movies, only: [:create]
+    resource :stripe, controller: :stripe, only: [:create]
+  end
+
 end
